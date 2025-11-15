@@ -19,6 +19,7 @@ PyPDF2      # For PDF files
 openpyxl    # For Excel files
 python-pptx # For PowerPoint files
 pdf2image   # For PDF to image conversion
+opencv-python-headless>=4.5.0
 
 # Optional / advanced
 transformers
