@@ -1,0 +1,68 @@
+filename,label,text
+invoice_001.txt,invoice,"Invoice #INV-12345
+Date: 01/15/2024
+Vendor: ABC Company
+Customer: XYZ Corporation
+Email: contact@abc.com
+Phone: (555) 123-4567
+Items:
+  Product A - $100.00
+  Product B - $250.50
+Total: $350.50
+Due Date: 02/15/2024"
+receipt_001.txt,receipt,"Receipt #REC-789
+Thank you for your purchase!
+Date: 01/20/2024
+Store: Retail Store Inc
+Transaction ID: TXN-456789
+Items Purchased:
+  Item 1 - $25.99
+  Item 2 - $15.50
+Subtotal: $41.49
+Tax: $3.32
+Total: $44.81
+Payment Method: Credit Card"
+resume_001.txt,resume,"John Doe
+Email: john.doe@email.com
+Phone: (555) 987-6543
+Location: New York, NY
+
+EXPERIENCE
+Software Engineer | Tech Corp | 2020-2022
+- Developed web applications
+- Led team of 5 developers
+
+EDUCATION
+BS Computer Science | State University | 2016-2020
+GPA: 3.8/4.0
+
+SKILLS
+Python, JavaScript, Machine Learning, Cloud Computing"
+contract_001.txt,contract,"SERVICE AGREEMENT
+Contract #CON-2024-001
+
+This Agreement is entered into on January 1, 2024, between:
+Party A: ABC Services Inc.
+Party B: XYZ Corporation
+
+TERMS AND CONDITIONS
+1. Service Period: January 1, 2024 to December 31, 2024
+2. Payment Terms: Net 30 days
+3. Total Contract Value: $50,000.00
+
+Effective Date: 01/01/2024
+Signature: [Signature Required]"
+invoice_002.txt,invoice,"Invoice #INV-67890
+Date: 02/10/2024
+Bill To: Customer Company
+Ship To: Same as Bill To
+Invoice Amount: $1,234.56
+Payment Due: 03/10/2024
+Terms: Net 30"
+receipt_002.txt,receipt,"RECEIPT
+Date: 02/15/2024
+Merchant: Coffee Shop
+Amount: $12.50
+Payment: Cash
+Thank you for visiting!"
+

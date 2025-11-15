@@ -1,0 +1,28 @@
+# Core
+numpy
+pandas
+opencv-python
+pytesseract
+pillow
+scikit-learn
+matplotlib
+seaborn
+joblib
+
+# NLP / NER
+spacy
+tqdm
+
+# Document Processing
+python-docx  # For DOCX files
+PyPDF2      # For PDF files
+openpyxl    # For Excel files
+python-pptx # For PowerPoint files
+pdf2image   # For PDF to image conversion
+
+# Optional / advanced
+transformers
+torch
+layoutparser
+streamlit
+datasets

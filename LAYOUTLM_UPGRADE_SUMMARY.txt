@@ -1,0 +1,63 @@
+LAYOUTLM/BERT UPGRADE SUMMARY
+=============================
+
+WHERE TO UPGRADE TO LAYOUTLM
+-----------------------------
+
+The project includes a scaffold file `train_layoutlm.py` that provides the basic structure for fine-tuning LayoutLM or BERT models. To upgrade from the current TF-IDF + RandomForest approach:
+
+1. **For Document Classification (Simpler)**: Use BERT sequence classification
+   - File: `train_layoutlm.py` -> `train_bert_classification()` function
+   - No bounding boxes required
+   - Works with text-only data (CSV format)
+   - Better accuracy for document type classification
+   - Implementation: Modify `src/classifier.py` to load and use the fine-tuned BERT model instead of RandomForest
+
+2. **For Token-Level Tasks (NER, Key-Value Extraction)**: Use LayoutLM
+   - File: `train_layoutlm.py` -> `train_layoutlm()` function
+   - Requires bounding box annotations
+   - Better for extracting structured information with spatial context
+   - Implementation: Replace `src/ner_kv.py` NERExtractor to use fine-tuned LayoutLM model
+
+REQUIRED ANNOTATED DATA FORMAT
+-------------------------------
+
+For LayoutLM fine-tuning, you need a dataset with the following structure:
+
+**JSON Format:**
+{
+    "documents": [
+        {
+            "id": "doc_001",
+            "text": "Invoice #12345 Date: 01/15/2024 Total: $100.00",
+            "bboxes": [[x1, y1, x2, y2], ...],  # Normalized to [0, 1000]
+            "labels": ["O", "B-INVOICE_NUM", "I-INVOICE_NUM", "O", "B-DATE", ...],  # BIO tags
+            "document_type": "invoice"
+        }
+    ]
+}
+
+**Key Requirements:**
+- Bounding boxes: Each token needs coordinates [x1, y1, x2, y2] normalized to [0, 1000]
+- Labels: BIO tagging format (B-begin, I-inside, O-outside) for each token
+- Minimum dataset size: 100-500 documents recommended for fine-tuning
+- Train/validation split: 80/20 or 70/30
+
+**For BERT Classification (Simpler Alternative):**
+- CSV format with columns: text, label
+- No bounding boxes needed
+- Can use existing `data/labels/train.csv` format
+- Minimum: 50-100 examples per class
+
+**Data Annotation Tools:**
+- Label Studio: https://labelstud.io/
+- Doccano: https://github.com/doccano/doccano
+- Prodigy: https://prodi.gy/ (commercial)
+
+**Pre-trained Models:**
+- LayoutLM Base: microsoft/layoutlm-base-uncased
+- LayoutLMv2: microsoft/layoutlmv2-base-uncased (better performance)
+- BERT Base: bert-base-uncased
+
+The scaffold file includes comments on where to implement data loading, model configuration, and training loops. Start with BERT classification for simpler implementation, then move to LayoutLM for advanced spatial understanding.
+
